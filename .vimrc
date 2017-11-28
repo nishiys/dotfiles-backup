@@ -41,7 +41,8 @@ autocmd VimEnter * match FullWidthSpace /　/
 
 " vim-plugの設定
 call plug#begin('~/.vim/plugged')
-    Plug 'tomasr/molokai'
+    Plug 'tomasr/molokai' "color scheme
+    Plug 'scrooloose/nerdtree' "ディレクトリをTree表示
 call plug#end()
 
 "--- for molokai ---
@@ -49,6 +50,11 @@ syntax on
 colorscheme molokai
 set t_Co=256
 "---------------------
-
+"--- for NERDTree ---
+""隠しファイルをデフォルトで表示
+let NERDTreeShowHidden = 1 
+""デフォルトでツリー表示
+autocmd VimEnter * execute 'NERDTree'
+"--------------------
 
 
