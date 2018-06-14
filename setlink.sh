@@ -1,6 +1,6 @@
  #!/bin/bash
 
-  DOT_FILES=(.vim .bash_profile .vimrc GNUPLOT.INI)
+  DOT_FILES=(.vim .bash_profile .vimrc .gnuplot)
 
  for file in ${DOT_FILES[@]}
  do
