@@ -43,6 +43,10 @@ autocmd VimEnter * match FullWidthSpace /　/
 call plug#begin('~/.vim/plugged')
     Plug 'tomasr/molokai' "color scheme
     Plug 'scrooloose/nerdtree' "ディレクトリをTree表示
+    ""for Markdown
+    Plug 'plasticboy/vim-markdown' "Markdown用プラグイン
+    Plug 'kannokanno/previm' "Markdownファイルをプレビューできるようにする
+    Plug 'tyru/open-browser.vim' "Markdownファイルのプレビューをブラウザで行う
 call plug#end()
 
 "--- for molokai ---
@@ -57,4 +61,11 @@ let NERDTreeShowHidden = 1
 autocmd VimEnter * execute 'NERDTree'
 "--------------------
 
+"--- for Markdown -----------------------------
+"".mkd, .mdファイルも.markdownファイルと認識させる
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+""勝手にmarkdown構文解釈して折りたたむのを防ぐ
+let g:vim_markdown_folding_disabled=1
+"-----------------------------------------------
 
