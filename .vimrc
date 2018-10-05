@@ -35,6 +35,8 @@ set listchars=tab:>.,trail:_,eol:↩︎,extends:≫,precedes:≪,nbsp:%
 " 全角スペースの背景を白に変更
 autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
+" homebrewからインストールしたvimに変えたらbackspaceがきかなくなったのでこの設定を追加
+set backspace=indent,eol,start
 "----------------------------------------------------------------------
 "* plugin setting
 "----------------------------------------------------------------------
@@ -43,10 +45,13 @@ autocmd VimEnter * match FullWidthSpace /　/
 call plug#begin('~/.vim/plugged')
     Plug 'tomasr/molokai' "color scheme
     Plug 'scrooloose/nerdtree' "ディレクトリをTree表示
+    Plug 'Yggdroot/indentLine' "インデントを可視化
+    Plug 'Shougo/neocomplete.vim' "強力なコード補間機能
     ""for Markdown
     Plug 'plasticboy/vim-markdown' "Markdown用プラグイン
     Plug 'kannokanno/previm' "Markdownファイルをプレビューできるようにする
     Plug 'tyru/open-browser.vim' "Markdownファイルのプレビューをブラウザで行う
+    ""for HTML
 call plug#end()
 
 "--- for molokai ---
@@ -58,7 +63,7 @@ set t_Co=256
 ""隠しファイルをデフォルトで表示
 let NERDTreeShowHidden = 1 
 ""デフォルトでツリー表示
-autocmd VimEnter * execute 'NERDTree'
+"autocmd VimEnter * execute 'NERDTree'
 "--------------------
 
 "--- for Markdown -----------------------------
@@ -69,3 +74,20 @@ autocmd BufRead,BufNewFile *.md  set filetype=markdown
 let g:vim_markdown_folding_disabled=1
 "-----------------------------------------------
 
+"--- for neocomplete ---
+" Vim起動時にneocompleteを有効にする
+let g:neocomplete#enable_at_startup = 1
+" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+let g:neocomplete#enable_smart_case = 1
+" 2文字以上の単語に対して補完を有効にする
+let g:neocomplete#min_keyword_length = 2
+" 区切り文字まで補完する
+let g:neocomplete#enable_auto_delimiter = 1
+" 1文字目の入力から補完のポップアップを表示
+let g:neocomplete#auto_completion_start_length = 1
+" ポップアップメニューで表示される候補の数
+let g:neocomplete#max_list = 20
+" preview windowを閉じない
+let g:neocomplete#enable_auto_close_preview = 0
+" バックスペースで補完のポップアップを閉じる
+"inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
