@@ -70,8 +70,11 @@ let NERDTreeShowHidden = 1
 "".mkd, .mdファイルも.markdownファイルと認識させる
 autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
+"" Ctrl + p でプレビュー
+nnoremap <silent> <C-p> :PrevimOpen<CR>
 ""勝手にmarkdown構文解釈して折りたたむのを防ぐ
 let g:vim_markdown_folding_disabled=1
+
 "-----------------------------------------------
 
 "--- for neocomplete ---
