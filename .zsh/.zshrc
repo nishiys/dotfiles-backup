@@ -8,7 +8,7 @@
 #fundamental path
 export PATH="/usr/local/bin"
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
-export PATH=$PATH:$HOME/usr/bin #どこかからダウンロードしてソースからビルドしたものはここへ
+export PATH=$PATH:$HOME/usr/bin #どこかからダウンロードしてソースからビルドしたものはここで管理
 
 
 # python
@@ -42,8 +42,6 @@ export GNUTERM=x11
 # Zplug
 # ****************************************************************
 
-
-#
 # brewのインストールパスを設定する
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -52,8 +50,6 @@ source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-
 
 
 ## 未インストール項目をインストールする
@@ -67,8 +63,6 @@ fi
 zplug load --verbose
 
 
-
-
 # ****************************************************************
 # Zsh setting
 # ****************************************************************
@@ -80,9 +74,17 @@ autoload -Uz colors
 colors
 
 # 左プロンプト
+if [ $UID -eq 0 ];then
+# ルートユーザーの場合
+PROMPT="
+%F{red}%n:%f%F{green}%d%f [%m] %%"
+else
+# ルートユーザー以外の場合
 PROMPT="
 %{$fg[blue]%}%n@%m:%{$reset_color%} %{$fg[red]%}%~%{$reset_color%}
 %{$fg[blue]%}$%{$reset_color%} "
+
+fi
 export LSCOLORS=cxfxexdxbxegedabagacad
 
 #右プロンプト (参考 http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/)
@@ -134,7 +136,6 @@ setopt print_eight_bit
 
 alias rm='rm -i' #-fつけると消すかどうか聞かずに削除してくれる。
 
-alias ls='ls -FG' #lsに色をつける(-G),ディレクトリに/をつける(-F)
 alias ll="ls -l" #ファイル情報表示
 alias la="ls -a" #dotfileも表示
 
@@ -151,7 +152,10 @@ case ${OSTYPE} in
     darwin*)
         #Mac用の設定
         export CLICOLOR=1
-        alias ls='ls -G -F'
+        alias ls='ls -G -F' #lsに色をつける(-G),ディレクトリに/をつける(-F)
+	# source-highlightでlessに色付け
+	export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
+	alias less='less -R'
         ;;
     linux*)
         #Linux用の設定
