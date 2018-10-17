@@ -43,7 +43,7 @@ set backspace=indent,eol,start
 
 " vim-plugの設定
 call plug#begin('~/.vim/plugged')
-    Plug 'tomasr/molokai' "color scheme
+    Plug 'tomasr/molokai', {'do': 'cp colors/* ~/.vim/colors/'} "color scheme
     Plug 'scrooloose/nerdtree' "ディレクトリをTree表示
     Plug 'Yggdroot/indentLine' "インデントを可視化
     Plug 'Shougo/neocomplete.vim' "強力なコード補間機能
