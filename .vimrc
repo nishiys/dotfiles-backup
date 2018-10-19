@@ -37,6 +37,10 @@ autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
 " homebrewからインストールしたvimに変えたらbackspaceがきかなくなったのでこの設定を追加
 set backspace=indent,eol,start
+" コピペの保存行数を増やす
+set viminfo='20,\"1000
+
+
 "----------------------------------------------------------------------
 "* plugin setting
 "----------------------------------------------------------------------
