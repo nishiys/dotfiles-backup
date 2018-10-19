@@ -39,7 +39,10 @@ autocmd VimEnter * match FullWidthSpace /　/
 set backspace=indent,eol,start
 " コピペの保存行数を増やす
 set viminfo='20,\"1000
-
+" show status line always
+set laststatus=2
+" save yank on clipboard
+set clipboard+=unnamed,autoselect
 " esc keymapping
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
@@ -61,6 +64,7 @@ inoremap <Right> <Nop>
 " vim-plugの設定
 call plug#begin('~/.vim/plugged')
     Plug 'tomasr/molokai', {'do': 'cp colors/* ~/.vim/colors/'} "color scheme
+    Plug 'altercation/vim-colors-solarized', {'do': 'cp colors/* ~/.vim/colors/'} "color scheme
     Plug 'scrooloose/nerdtree' "ディレクトリをTree表示
     Plug 'Yggdroot/indentLine' "インデントを可視化
     Plug 'Shougo/neocomplete.vim' "強力なコード補間機能
@@ -72,9 +76,15 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 "--- for molokai ---
-syntax on
-colorscheme molokai
-set t_Co=256
+"syntax on
+"colorscheme molokai
+"set t_Co=256
+
+"--- for solarized ---
+syntax enable
+set background=dark
+colorscheme solarized
+
 "---------------------
 "--- for NERDTree ---
 ""隠しファイルをデフォルトで表示

@@ -1,4 +1,4 @@
-# dotfilesのGit管理(macOS) {2018/10/17更新}
+# dotfilesのGit管理(macOS) {2018/10/20更新}
 
 macOS用をmasterブランチで管理。
 Ubuntu用にubuntuブランチを作成。
@@ -18,6 +18,16 @@ $HOME直下に.で始まるファイル・ディレクトリのシンボリッ�
 で実行権限(x)を追加(+)して実行した。
 
 注) WINDOWSではシンボリックリンクのコマンドがこれと違ったと思うので使えない。
+
+## homebrew.sh
+homebrewのインストールから最低限必要なもののインストールを自動で行うscript
+
+注) ricty (Regular) のみ
+```
+$ cp -f /usr/local/Cellar/ricty/3.2.4（バージョン要確認）/share/fonts/Ricty*.ttf ~/Library/Fonts/
+$ fc-cache -vf
+```
+を手動で実行する必要あり。
 
 
 ## zsh

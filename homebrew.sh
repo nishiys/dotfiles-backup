@@ -33,6 +33,8 @@ formulas=(
     curl
     tree
     cask
+    "ricty --vim-powerline --powerline" # 別途fontを移す作業が必要
+    # https://dev.classmethod.jp/devenv/vim-ricty-for-powerline/ を参考に
 )
 
 
