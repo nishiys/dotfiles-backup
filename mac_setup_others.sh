@@ -9,3 +9,11 @@ cp -f ~/RictyDiminished-for-Powerline/Ricty*.ttf ~/Library/Fonts/
 cp -f ~/RictyDiminished-for-Powerline/powerline-fontpatched/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 
+
+# Install powerline fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+

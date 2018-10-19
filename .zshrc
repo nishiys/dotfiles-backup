@@ -15,6 +15,19 @@ export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
 export PATH=$PATH:$HOME/usr/bin 
 
 
+# coreutils path
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# gnu-sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+# grep
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
+# gnu-tar
+PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
+
 # python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -41,7 +54,7 @@ export GNUTERM=x11
 # ls(GNU)の色設定をgithub(https://github.com/seebi/dircolors-solarized)から
 # ダウンロードしたsolarizedのカラースキームに変更
 # dircolorsを使用しているため、coreutilsのダウンロードが必要
-eval $(gdircolors ~/dotfiles/colors/.dircolors-solarized/dircolors.ansi-dark)
+eval $(dircolors ~/dotfiles/colors/.dircolors-solarized/dircolors.ansi-dark)
 
 
 
@@ -50,6 +63,7 @@ eval $(gdircolors ~/dotfiles/colors/.dircolors-solarized/dircolors.ansi-dark)
 # ****************************************************************
 
 
+#bindkey -v
 
 
 ###########################
@@ -81,6 +95,14 @@ zstyle ':completion:*' list-colors "${LS_COLORS}"
 # 入力ミス時に似たコマンドを表示
 setopt correct
 
+## for peco
+function peco-select-history() {
+  BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
 
 ###########################
 ## 分割ファイルの読み込み

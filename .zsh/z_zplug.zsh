@@ -21,7 +21,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # ヒストリの補完を強化する
 zplug "zsh-users/zsh-history-substring-search", defer:3
 # テーマをpowerlevel9kに
-#zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 ## 未インストール項目をインストールする
 if ! zplug check --verbose; then
@@ -37,14 +37,19 @@ zplug load --verbose
 
 ###########################################
 ## powerlevel9k
+# font setting
+#POWERLEVEL9K_MODE='nerdfont-complete'
+
 
 #プロンプトを二行表示
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 # Adding Newline Before Each Prompt
-#POWERLEVEL9K_PROMPT_ADD_NEWLINE
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
+# Disable RPROMPT
+POWERLEVEL9K_DISABLE_RPROMPT=true
 
 
 

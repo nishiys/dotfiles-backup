@@ -4,27 +4,21 @@
 
 
 ## coreutils
-alias sed='gsed'
+# PATHの方でnormal nameを使用するように設定済み
+
+## other linux commands
 alias awk='gawk'
 
-
-
 export CLICOLOR=1
-alias ls='gls -F --color=auto' #ディレクトリに/をつける(-F)
-
-
-
-
-
-alias rm='grm -iv' #-fつけると消すかどうか聞かずに削除してくれる。
-alias mv='gmv -v' #(--verbose)途中経過を表示
-alias cp='gcp -v'
-
+alias ls='ls -F --color=auto' #ディレクトリに/をつける(-F)
 alias ll='ls -l' #ファイル情報表示
 alias la='ls -a' #dotfileも表示
 alias lla='ll -a'
 
-alias mkdir='gmkdir -p -v' #(--parents)親子ディレクトリを同時に作成可能, (--verbose)結果を表示
+alias rm='rm -iv' #-fつけると消すかどうか聞かずに削除してくれる。
+alias mv='mv -v' #(--verbose)途中経過を表示
+alias cp='cp -v'
+alias mkdir='mkdir -p -v' #(--parents)親子ディレクトリを同時に作成可能, (--verbose)結果を表示
 
 
 # source-highlightでlessに色付け

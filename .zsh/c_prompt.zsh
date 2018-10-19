@@ -1,9 +1,4 @@
 
-
-# ****************************************************************
-# Zsh setting
-# ****************************************************************
-
 ###########################
 ## プロンプトの設定
 
@@ -111,32 +106,32 @@
 
 
 
-autoload -Uz colors
-colors
-
-
-# 左プロンプト
-if [ $UID -eq 0 ];then
-# ルートユーザーの場合
-PROMPT="
-%F{red}%n:%f%F{green}%d%f [%m] %%"
-else
-# ルートユーザー以外の場合
-PROMPT="
-%{$fg[cyan]%}%n@%m:%{$reset_color%} %{$fg[red]%}%~%{$reset_color%}
-%{$fg[cyan]%}$%{$reset_color%} "
-
-fi
-
-#右プロンプト (参考 http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/)
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-
+#autoload -Uz colors
+#colors
+#
+#
+## 左プロンプト
+#if [ $UID -eq 0 ];then
+## ルートユーザーの場合
+#PROMPT="
+#%F{red}%n:%f%F{green}%d%f [%m] %%"
+#else
+## ルートユーザー以外の場合
+#PROMPT="
+#%{$fg[cyan]%}%n@%m:%{$reset_color%} %{$fg[red]%}%~%{$reset_color%}
+#%{$fg[cyan]%}$%{$reset_color%} "
+#
+#fi
+#
+##右プロンプト (参考 http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/)
+#autoload -Uz vcs_info
+#setopt prompt_subst
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+#zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+#zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+#zstyle ':vcs_info:*' actionformats '[%b|%a]'
+#precmd () { vcs_info }
+#RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+#
+#

@@ -22,10 +22,13 @@ formulas=(
     zsh-completions
     pyenv
     git
-    coreutils
     tig
-    tmux
+    coreutils
     gnu-sed
+    grep
+    gawk
+    gnu-tar
+    tmux
     wget
     curl
     tree
