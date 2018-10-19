@@ -40,6 +40,19 @@ set backspace=indent,eol,start
 " コピペの保存行数を増やす
 set viminfo='20,\"1000
 
+" esc keymapping
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
+
+" for training 
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 "----------------------------------------------------------------------
 "* plugin setting
