@@ -16,6 +16,6 @@ fc-cache -vf # フォントのキャッシュの更新
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
-cd ..
+cd ../
 rm -rf fonts
 
