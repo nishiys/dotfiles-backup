@@ -39,8 +39,6 @@ autocmd VimEnter * match FullWidthSpace /　/
 set backspace=indent,eol,start
 " コピペの保存行数を増やす
 set viminfo='20,\"1000
-" show status line always
-set laststatus=2
 " save yank on clipboard
 set clipboard+=unnamed,autoselect
 " esc keymapping
@@ -72,7 +70,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'plasticboy/vim-markdown' "Markdown用プラグイン
     Plug 'kannokanno/previm' "Markdownファイルをプレビューできるようにする
     Plug 'tyru/open-browser.vim' "Markdownファイルのプレビューをブラウザで行う
-    ""for HTML
+    "" for vim-airline
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "--- for molokai ---
@@ -121,3 +121,14 @@ let g:neocomplete#max_list = 20
 let g:neocomplete#enable_auto_close_preview = 0
 " バックスペースで補完のポップアップを閉じる
 "inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+
+"--- vim-airline ------------------------------
+let g:airline_powerline_fonts = 1
+" show status line always
+set laststatus=2
+" set colorscheme
+let g:airline_theme = 'angr'
+" tabline
+let g:airline#extensions#tabline#enabled = 1
+
+"----------------------------------------------

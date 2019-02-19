@@ -34,7 +34,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # TeX
-export PATH="$PATH:/usr/local/texlive/2017/bin/x86_64-darwin"
+export PATH="$PATH:/usr/local/texlive/2018/bin/x86_64-darwin"
 
 
 ### PATH以外の環境変数の設定
