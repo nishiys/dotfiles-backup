@@ -31,4 +31,5 @@ alias less='/usr/share/vim/vim80/macros/less.sh'
 alias mpiexec="export TMPDIR='/tmp'; mpiexec" #macでは自動で$TMPDIRが決められ、そこに一時ファイルが保存される仕様になっているが、或る日突然$TMPDIRが長すぎるということでmpiexecが通らなくなったのでこのエイリアスを設定した。
 
 
-
+## vim --> nvim ! 現段階でclipboard連携などでvimrcをそのまま引き継げないので移行はまだ先にしよう。
+# alias vim='nvim'
